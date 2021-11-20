@@ -89,8 +89,14 @@ generateRuleTests({
 
     {
       // override the allowlist list
+      config: ['/', '"'],
+      template: '{{t "foo"}} / &lpar;"{{name}}"&rpar;',
+    },
+
+    {
+      // override the allowlist list
       config: { allowlist: ['/', '"'] },
-      template: '{{t "foo"}} / "{{name}}"',
+      template: '{{t "foo"}} / &lpar;"{{name}}"&rpar;',
     },
 
     {
