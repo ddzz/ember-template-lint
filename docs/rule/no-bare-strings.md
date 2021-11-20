@@ -27,6 +27,7 @@ This rule **allows** the following:
   * `allowlist` -- An array of allowlisted strings
   * `globalAttributes` -- An array of attributes to check on every element.
   * `elementAttributes` -- An object whose keys are tag names and value is an array of attributes to check for that tag name.
+  * `ignoreDefaultAllowList` -- A boolean to optionaly ignore default allowlist
 
 When the config value of `true` is used the following configuration is used:
 

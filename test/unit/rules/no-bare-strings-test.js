@@ -514,5 +514,39 @@ generateRuleTests({
         `);
       },
     },
+
+    {
+      // ignore the default allowlist list
+      config: { allowlist: ['/', '"'], ignoreDefaultAllowList: true },
+      template: '{{t "foo"}} / &lpar;"{{name}}"&rpar;',
+      verifyResults(results) {
+        expect(results).toMatchInlineSnapshot(`
+          Array [
+            Object {
+              "column": 11,
+              "endColumn": 21,
+              "endLine": 1,
+              "filePath": "layout.hbs",
+              "line": 1,
+              "message": "Non-translated string used",
+              "rule": "no-bare-strings",
+              "severity": 2,
+              "source": " / &lpar;\\"",
+            },
+            Object {
+              "column": 29,
+              "endColumn": 36,
+              "endLine": 1,
+              "filePath": "layout.hbs",
+              "line": 1,
+              "message": "Non-translated string used",
+              "rule": "no-bare-strings",
+              "severity": 2,
+              "source": "\\"&rpar;",
+            },
+          ]
+        `);
+      },
+    },
   ],
 });
